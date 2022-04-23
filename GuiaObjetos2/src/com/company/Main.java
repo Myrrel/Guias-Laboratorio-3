@@ -5,6 +5,8 @@ import com.company.ejer1.Libro;
 import com.company.ejer2.Client;
 import com.company.ejer2.Factura;
 
+import java.util.Arrays;
+
 public class Main {
     static void ejer1(){
         /*
@@ -73,6 +75,8 @@ public class Main {
         System.out.println(" Total factura " + factura.getTotal());
         System.out.println(" Total factura con descuento " + factura.getTotalByClientDiscount());
 
+        Object [] lista = new Object[4];
+                Arrays.stream(lista).allMatch()
 
         // d. Cree un método que facilite la impresión del objeto de tipo Factura y que siga el siguiente formato.
         //        Factura[id=?, fecha=?, monto=?, montoDesc=?, Cliente[id=?, nombre=?, email=?, descuento=?]]
@@ -85,8 +89,13 @@ public class Main {
 
     }
 
+    static void ejer3() {
+
+    }
+    
     public static void main(String[] args) {
         //ejer1();
-        ejer2();
+       //ejer2();
+        ejer3();
     }
 }
