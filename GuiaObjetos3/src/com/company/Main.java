@@ -2,7 +2,13 @@ package com.company;
 
 import Ejercicio1.Cilindro;
 
+import Ejercicio2.Estudiante;
+import Ejercicio2.MiembroStaff;
+import Ejercicio2.Persona;
+
 import java.util.Locale;
+
+import static Ejercicio2.MiembroStaff.Turno;
 
 public class Main {
     static void ejer1(){
@@ -63,6 +69,69 @@ public class Main {
     }
 
     static void ejer2(){
+        /*
+            Inicializar 4 estudiantes diferentes.
+        */
+        Persona[] listado = new Persona[8];
+
+        for (int i = 0; i < 4; i++) {
+            listado[i] = new Estudiante(
+                    "23456789",
+                    "Perez" + i,
+                    "Carlos" + i,
+                    "carlos@gmail.com" + i,
+                    "direccion 2345" + i,
+                    "Lic Historia",
+                    2020,
+                    5000
+            );
+        }
+
+        /*
+            Inicializar 4 miembros de staff con características diferentes.
+            Crear un array que permita almacenar juntos los tipos anteriores y
+            almacenar las 8 instancias creadas anteriormente.
+        */
+
+        for (int i = 4; i < listado.length; i++) {
+            listado[i] = new MiembroStaff(
+                    "23456789",
+                    "Perez" + i,
+                    "Carlos" + i,
+                    "carlos@gmail.com" + i,
+                    "direccion 2345 " + i,
+                    23000,
+                     (i % 2 == 0) ? Turno.NOCHE : Turno.MANIANA
+            );
+        }
+
+        /*
+            Investigar el uso de la palabra reservada instanceof.
+            Recorrer el array y mostrar por pantalla la cantidad de estudiantes y
+            la cantidad de miembros de staff.
+            Recorrer el array y sumar el total de ingresos que percibe la
+            institución por parte de la cuota de estudiantes.
+        */
+
+        double totalIngresosPorCuotas = 0;
+        double cantEstudiantes = 0;
+        double cantMiembrosStaff = 0;
+
+        for (int i = 0; i < listado.length ; i++) {
+
+            if (listado[i] instanceof Estudiante) {
+                cantEstudiantes += 1;
+                totalIngresosPorCuotas += ((Estudiante) listado[i]).getCuotaMensual();
+            } else {
+                cantMiembrosStaff += 1;
+            }
+        }
+
+        System.out.println("totalIngresosPorCuotas: "+
+                String.format(Locale.GERMAN,"%,.2f", totalIngresosPorCuotas)
+        );
+        System.out.println("cant Estudiantes: "+ cantEstudiantes);
+        System.out.println("cant Miembros Staff: "+ cantMiembrosStaff);
 
     }
 
