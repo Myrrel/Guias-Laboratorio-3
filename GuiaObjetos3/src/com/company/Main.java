@@ -5,12 +5,17 @@ import Ejercicio1.Cilindro;
 import Ejercicio2.Estudiante;
 import Ejercicio2.MiembroStaff;
 import Ejercicio2.Persona;
-
+import Ejercicio3.Circulo;
+import Ejercicio3.Cuadrado;
+import Ejercicio3.Rectangulo;
 import java.util.Locale;
 
 import static Ejercicio2.MiembroStaff.Turno;
 
 public class Main {
+    static void printFormat(String msg, double num){
+        System.out.println(msg + " " + String.format(Locale.GERMANY,"%,.2f",num));
+    }
     static void ejer1(){
         /*
         Inicializar un Cilindro y debuguear analizando los constructores a los que
@@ -19,10 +24,10 @@ public class Main {
         * */
         Cilindro cilindro = new Cilindro();
         System.out.println("=======================================");
-        System.out.println("= Radio del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro.getRadio()));
-        System.out.println("= Altura del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro.getAltura()));
-        System.out.println("= Area del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro.getArea()));
-        System.out.println("= Volumen del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro.getVolumen()));
+        printFormat("= Radio del Cilindro ",cilindro.getRadio());
+        printFormat("= Altura del Cilindro  ",cilindro.getAltura());
+        printFormat("= Area del Cilindro ",cilindro.getArea());
+        printFormat("= Volumen del Cilindro  ",cilindro.getVolumen());
         System.out.println("=======================================");
         System.out.println();
 
@@ -32,11 +37,12 @@ public class Main {
     */
         Cilindro cilindro2 = new Cilindro(3,5);
         System.out.println("=======================================");
-        System.out.println("= Radio del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getRadio()));
-        System.out.println("= Altura del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getAltura()));
-        System.out.println("= Area del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getArea()));
-        System.out.println("= Volumen del Cilindro  " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getVolumen()));
+        printFormat("= Radio del Cilindro ",cilindro2.getRadio());
+        printFormat("= Altura del Cilindro ",cilindro2.getAltura());
+        printFormat("= Area del Cilindro ",cilindro2.getArea());
+        printFormat("= Volumen del Cilindro ",cilindro2.getVolumen());
         System.out.println("=======================================");
+        System.out.println();
 
     /*
         Sobreescribir el método calcular area declarado en Círculo, para que nos permita calcular el área del
@@ -49,16 +55,13 @@ public class Main {
     */
 
         System.out.println("=======================================");
-        System.out.println("= Radio del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getRadio()));
-        System.out.println("= Altura del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getAltura()));
-        System.out.println("= Area de la base del Cilindro " + String.format(
-                Locale.GERMAN,
-                "%,.2f",
-                cilindro2.getAreaBase()
-        ));
-        System.out.println("= Area del Cilindro " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getArea()));
-        System.out.println("= Volumen del Cilindro  " + String.format(Locale.GERMAN,"%,.2f" ,cilindro2.getVolumen()));
+        printFormat("= Radio del Cilindro ",cilindro2.getRadio());
+        printFormat("= Altura del Cilindro ",cilindro2.getAltura());
+        printFormat("= Area de la base del Cilindro ",cilindro2.getAreaBase());
+        printFormat("= Area del Cilindro ",cilindro2.getArea());
+        printFormat("= Volumen del Cilindro ",cilindro2.getVolumen());
         System.out.println("=======================================");
+        System.out.println();
 
     /*
         Modificar el método toString() de la clase cilindro para que imprima por pantalla lo siguiente
@@ -127,20 +130,30 @@ public class Main {
             }
         }
 
-        System.out.println("totalIngresosPorCuotas: "+
-                String.format(Locale.GERMAN,"%,.2f", totalIngresosPorCuotas)
-        );
-        System.out.println("cant Estudiantes: "+ cantEstudiantes);
-        System.out.println("cant Miembros Staff: "+ cantMiembrosStaff);
-
+        printFormat("totalIngresosPorCuotas: ",totalIngresosPorCuotas);
+        printFormat("cant Estudiantes: ",cantEstudiantes);
+        printFormat("cant Miembros Staff: ",cantMiembrosStaff);
     }
 
     static void ejer3(){
 
+        Circulo circulo = new Circulo(3);
+        Rectangulo rectangulo = new Rectangulo(2,4);
+        Cuadrado cuadrado = new Cuadrado(5);
+
+        printFormat("Circulo Area ",circulo.getArea());
+        printFormat("Circulo Perimetro ",circulo.getPerimetro());
+
+        printFormat("Rectangulo Area ",rectangulo.getArea());
+        printFormat("Rectangulo Area ",rectangulo.getPerimetro());
+
+        printFormat("Cuadrado Area ",cuadrado.getArea());
+        printFormat("Cuadrado Perimetro ",cuadrado.getPerimetro());
     }
 
     public static void main(String[] args) {
         //ejer1();
-        ejer2();
+        //ejer2();
+        ejer3();
     }
 }
